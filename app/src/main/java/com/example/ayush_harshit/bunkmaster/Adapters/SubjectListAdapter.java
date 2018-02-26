@@ -72,5 +72,10 @@ public class SubjectListAdapter extends RecyclerView.Adapter<SubjectListAdapter.
     public int getItemCount() {
         return subjects.size();
     }
+
+    public void setData(List<Subject> mSubjects){
+        subjects = mSubjects;
+        notifyDataSetChanged();
+    }
 }
 

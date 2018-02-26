@@ -38,6 +38,7 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="50dp">
 
+                <!--
                 <TextView
                     android:id="@+id/tvCourseCode"
                     android:layout_width="wrap_content"
@@ -45,6 +46,7 @@
                     android:text="Course Code"
                     android:textColor="@android:color/black"
                     android:textStyle="bold" />
+                    -->
 
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/etCourseCode"
@@ -56,7 +58,8 @@
                     android:paddingBottom="5dp"
                     android:paddingLeft="15dp"
                     android:paddingRight="10dp"
-                    android:paddingTop="5dp" />
+                    android:paddingTop="5dp"
+                   />
 
             </LinearLayout>
 
@@ -71,6 +74,7 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="50dp">
 
+                <!--
                 <TextView
                     android:id="@+id/tvCourseName"
                     android:layout_width="wrap_content"
@@ -78,6 +82,7 @@
                     android:text="Course Name"
                     android:textColor="@android:color/black"
                     android:textStyle="bold" />
+                    -->
 
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/etCourseName"
@@ -104,6 +109,7 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="50dp">
 
+                <!--
                 <TextView
                     android:id="@+id/tvCourseDuration"
                     android:layout_width="wrap_content"
@@ -111,6 +117,7 @@
                     android:text="CourseDuration"
                     android:textColor="@android:color/black"
                     android:textStyle="bold" />
+                    -->
 
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/etCourseDuration"
@@ -137,6 +144,7 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="50dp">
 
+                <!--
                 <TextView
                     android:id="@+id/tvPerWeek"
                     android:layout_width="wrap_content"
@@ -144,6 +152,7 @@
                     android:text="Lectures Per Week"
                     android:textColor="@android:color/black"
                     android:textStyle="bold" />
+                    -->
 
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/etPerWeek"
@@ -169,6 +178,7 @@
                 android:orientation="vertical"
                 android:paddingLeft="10dp">
 
+                <!--
                 <TextView
                     android:id="@+id/tvBunkLectures"
                     android:layout_width="wrap_content"
@@ -176,6 +186,7 @@
                     android:text="Bunkable Lectures"
                     android:textColor="@android:color/black"
                     android:textStyle="bold" />
+                    -->
 
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/etBunkLectures"

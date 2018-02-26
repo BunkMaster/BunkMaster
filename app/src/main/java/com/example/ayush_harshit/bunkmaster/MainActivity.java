@@ -85,14 +85,16 @@ public class MainActivity extends AppCompatActivity {
 
         subjects = new ArrayList<Subject>();
         subjects.add(new Subject("CS-309","Simple Crossfade",
-                "95%"));
+                "95"));
         //mAdapter.notifyDataSetChanged();
         //mAdapter.notifyItemRangeChanged(0, subjects.size());
 
         subjects.add(new Subject("CS-309","Simple Crossfade",
-                "95%"));
+                "95"));
+
+        mAdapter.setData(subjects);
         //mAdapter.notifyDataSetChanged();
-        mAdapter.notifyItemRangeChanged(0, subjects.size());
+        //mAdapter.notifyItemRangeChanged(0, subjects.size());
 
         /*subjects.add(new Subject("CS-309","Simple Crossfade",
                 "95%"));

@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddSubjects"></activity>
+        <activity android:name=".AddSubjects"
+            android:label="Add Subject Details"></activity>
     </application>
 
 </manifest>
