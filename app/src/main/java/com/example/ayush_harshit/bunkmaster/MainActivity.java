@@ -84,45 +84,24 @@ public class MainActivity extends AppCompatActivity {
     public void AddSubjectsToRecyclerViewArrayList() {
 
         subjects = new ArrayList<Subject>();
-        subjects.add(new Subject("CS-309","Simple Crossfade",
-                "95"));
+        subjects.add(new Subject("CS-309","Introduction to" +
+                " Crytography and Security",
+                "90"));
         //mAdapter.notifyDataSetChanged();
         //mAdapter.notifyItemRangeChanged(0, subjects.size());
 
-        subjects.add(new Subject("CS-309","Simple Crossfade",
+        subjects.add(new Subject("IT-302","Simple Crossfade",
                 "95"));
+
+        subjects.add(new Subject("IT-302","Information Security",
+                "80"));
+
+        subjects.add(new Subject("CS-303","Software Engineering",
+                "75"));
 
         mAdapter.setData(subjects);
-        //mAdapter.notifyDataSetChanged();
-        //mAdapter.notifyItemRangeChanged(0, subjects.size());
 
-        /*subjects.add(new Subject("CS-309","Simple Crossfade",
-                "95%"));
-        //mAdapter.notifyDataSetChanged();
-
-        subjects.add(new Subject("CS-309","Simple Crossfade",
-                "95%"));
-        //mAdapter.notifyDataSetChanged();
-
-        subjects.add(new Subject("CS-309","Simple Crossfade",
-                "95%"));
-        //mAdapter.notifyDataSetChanged();
-
-        subjects.add(new Subject("CS-309","Simple Crossfade",
-                "95%"));
-        //mAdapter.notifyDataSetChanged();
-
-        subjects.add(new Subject("CS-309","Simple Crossfade",
-                "95%"));
-        //mAdapter.notifyDataSetChanged();
-
-        subjects.add(new Subject("CS-309","Simple Crossfade",
-                "95%"));
-        mAdapter.notifyDataSetChanged();*/
 
     }
 }
 
-/*
-
- */

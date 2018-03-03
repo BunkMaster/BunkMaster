@@ -6,6 +6,7 @@ package com.example.ayush_harshit.bunkmaster.Adapters;
 import com.example.ayush_harshit.bunkmaster.R;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -66,6 +67,17 @@ public class SubjectListAdapter extends RecyclerView.Adapter<SubjectListAdapter.
         holder.tvCourseCode.setText(currentSubject.getTvCourseCode());
         holder.tvCourseName.setText(currentSubject.getTvCourseName());
         holder.tvCourseAttendance.setText(currentSubject.getTvCourseAttendance() + "%");
+        if(position%2 == 1){
+            holder.itemView.setBackgroundColor(Color.GRAY);
+            holder.tvCourseName.setTextColor(Color.WHITE);
+            holder.tvCourseAttendance.setTextColor(Color.WHITE);
+        }
+
+        else{
+            holder.itemView.setBackgroundColor(Color.WHITE);
+            holder.tvCourseName.setTextColor(Color.GRAY);
+            holder.tvCourseAttendance.setTextColor(Color.GRAY);
+        }
     }
 
     @Override

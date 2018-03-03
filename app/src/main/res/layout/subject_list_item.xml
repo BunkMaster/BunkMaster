@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="100dp"
     card_view:contentPadding="7dp"
-    card_view:cardCornerRadius="7dp"
+    card_view:cardCornerRadius="10dp"
     card_view:cardElevation="7dp"
-    card_view:cardBackgroundColor="@android:color/holo_blue_light"
-    android:layout_margin="1dp"
+    card_view:cardBackgroundColor="@android:color/transparent"
+    android:layout_marginBottom="4dp"
     android:orientation="horizontal"
     >
 
@@ -24,37 +24,48 @@
             android:layout_height="match_parent"
             android:layout_weight="0.25"
             android:text="CS-309"
-            android:layout_gravity="center"
+            android:textSize="18dp"
+            android:textStyle="bold"
             android:gravity="center"
             android:background="@drawable/rounded_text_view"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#CDDC39"
+            android:layout_marginLeft="10dp"/>
 
         <TextView
             android:id="@+id/tvCourseName"
             android:layout_gravity="center"
             android:gravity="center"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:layout_marginTop="3dp"
             android:layout_marginBottom="3dp"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:textStyle="bold"
             android:text="Something"
             android:layout_weight="0.55"
-            android:textColor="#fff"/>
+            />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#CDDC39"
+            android:layout_marginLeft="10dp"/>
 
         <TextView
             android:id="@+id/tvCourseAttendance"
             android:layout_gravity="center"
             android:gravity="center"
-            android:textSize="20dp"
-            android:layout_marginTop="3dp"
-            android:layout_marginBottom="3dp"
+            android:textSize="25dp"
+            android:layout_margin="6dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:layout_weight="0.20"
             android:text="95%"
-            android:background="@color/cardview_light_background"
             />
 
     </LinearLayout>
