@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@android:color/holo_blue_light"
+    android:background="@android:color/holo_green_light"
     tools:context="com.example.ayush_harshit.bunkmaster.AddASubject">
 
     <LinearLayout
@@ -38,15 +38,6 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="20dp">
 
-                <!--
-                <TextView
-                    android:id="@+id/tvCourseCode"
-                    android:layout_width="wrap_content"
-                    android:layout_height="25dp"
-                    android:text="Course Code"
-                    android:textColor="@android:color/black"
-                    android:textStyle="bold" />
-                    -->
 
                 <android.support.design.widget.TextInputLayout
 
@@ -77,15 +68,6 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="20dp">
 
-                <!--
-                <TextView
-                    android:id="@+id/tvCourseName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="25dp"
-                    android:text="Course Name"
-                    android:textColor="@android:color/black"
-                    android:textStyle="bold" />
-                    -->
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
@@ -119,16 +101,6 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="20dp">
 
-                <!--
-                <TextView
-                    android:id="@+id/tvCourseDuration"
-                    android:layout_width="wrap_content"
-                    android:layout_height="25dp"
-                    android:text="CourseDuration"
-                    android:textColor="@android:color/black"
-                    android:textStyle="bold" />
-                    -->
-
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -161,15 +133,6 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="20dp">
 
-                <!--
-                <TextView
-                    android:id="@+id/tvPerWeek"
-                    android:layout_width="wrap_content"
-                    android:layout_height="25dp"
-                    android:text="Lectures Per Week"
-                    android:textColor="@android:color/black"
-                    android:textStyle="bold" />
-                    -->
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
@@ -203,16 +166,6 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="20dp">
 
-                <!--
-                <TextView
-                    android:id="@+id/tvBunkLectures"
-                    android:layout_width="wrap_content"
-                    android:layout_height="25dp"
-                    android:text="Bunkable Lectures"
-                    android:textColor="@android:color/black"
-                    android:textStyle="bold" />
-                    -->
-
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -243,7 +196,7 @@
         android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:background="@drawable/edittextbackground"
-        android:backgroundTint="@android:color/holo_green_dark"
+        android:backgroundTint="@android:color/holo_blue_light"
         android:gravity="center"
         android:text="Done"
         android:layout_centerInParent="true"
