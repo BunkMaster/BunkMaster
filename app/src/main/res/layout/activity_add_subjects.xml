@@ -58,7 +58,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Course Code "
-                        android:inputType="textPassword"
+                        android:inputType="textCapCharacters"
                         android:paddingLeft="15dp"
                         android:paddingRight="10dp"
                         android:textColor="@android:color/black"
@@ -69,7 +69,7 @@
             <LinearLayout
                 android:id="@+id/linearLayout2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_marginBottom="20dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="90dp"
@@ -89,14 +89,17 @@
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
                     <EditText
                         android:id="@+id/etCourseName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Course Name"
-                        android:inputType="textPassword"
+                        android:digits="@string/alphabets_only"
+                        android:inputType="textVisiblePassword"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
                         android:paddingLeft="15dp"
                         android:paddingRight="10dp"
                          />
@@ -134,8 +137,10 @@
                         android:id="@+id/etCourseDuration"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Course Duration"
-                        android:inputType="textPassword"
+                        android:digits="@string/digits_only"
+                        android:hint="Course Duration (in weeks)"
+                        android:inputType="number"
+                        android:imeOptions="actionNext"
                         android:paddingLeft="15dp"
                         android:paddingRight="10dp"
                          />
@@ -175,7 +180,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="# lectures per week"
-                        android:inputType="textPassword"
+                        android:digits="@string/digits_only"
+                        android:inputType="phone"
+                        android:imeOptions="actionNext"
                         android:paddingLeft="15dp"
                         android:paddingRight="10dp"
                          />
@@ -214,8 +221,10 @@
                         android:id="@+id/etBunkLectures"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="#bunkable lectures"
-                        android:inputType="textPassword"
+                        android:digits="@string/digits_only"
+                        android:hint="# bunkable lectures"
+                        android:inputType="phone"
+                        android:imeOptions="actionDone"
                         android:paddingLeft="15dp"
                         android:paddingRight="10dp"
                          />
