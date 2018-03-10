@@ -1,9 +1,208 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.ayush_harshit.bunkmaster.AddSubjects">
+    android:orientation="vertical"
+    android:background="#64B5F6"
+    tools:context="com.example.ayush_harshit.bunkmaster.AddASubject">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="470dp"
+        android:gravity="center"
+        android:id="@+id/linearLayout">
+
+        <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/cardview"
+            android:layout_width="300dp"
+            android:layout_height="410dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            card_view:cardBackgroundColor="@android:color/white"
+            card_view:cardCornerRadius="7dp"
+            card_view:cardElevation="10dp"
+            card_view:contentPadding="7dp">
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="20dp">
+
+
+                <android.support.design.widget.TextInputLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/etCourseCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Course Code "
+                        android:inputType="textCapCharacters"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="10dp"
+                        android:textColor="@android:color/black"
+                        />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="90dp"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="20dp">
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/etCourseName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Course Name"
+                        android:digits="@string/alphabets_only"
+                        android:inputType="textVisiblePassword"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="10dp"
+                         />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="160dp"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="20dp">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etCourseDuration"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="@string/digits_only"
+                        android:hint="Course Duration (in weeks)"
+                        android:inputType="number"
+                        android:imeOptions="actionNext"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="10dp"
+                         />
+
+                </android.support.design.widget.TextInputLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="230dp"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="20dp">
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etPerWeek"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="# lectures per week"
+                        android:digits="@string/digits_only"
+                        android:inputType="phone"
+                        android:imeOptions="actionNext"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="10dp"
+                         />
+
+                </android.support.design.widget.TextInputLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="300dp"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="20dp">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etBunkLectures"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:digits="@string/digits_only"
+                        android:hint="# bunkable lectures"
+                        android:inputType="phone"
+                        android:imeOptions="actionDone"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="10dp"
+                         />
+
+                </android.support.design.widget.TextInputLayout>
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btDone"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittextbackground"
+        android:backgroundTint="#F06292"
+        android:gravity="center"
+        android:text="Done"
+        android:layout_centerInParent="true"
+        android:textSize="20dp"
+        android:layout_below="@+id/linearLayout"
+        android:layout_marginTop="-40dp"/>
+
+
+</RelativeLayout>
