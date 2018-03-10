@@ -3,4 +3,6 @@
     <string name="title_activity_add_asubject">AddASubject</string>
     <string name="alphabets_only">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ </string>
     <string name="digits_only">0123456789</string>
+    <string name="error_saving">Error with saving subject</string>
+    <string name="subject_saved">Saving Successful</string>
 </resources>
