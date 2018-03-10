@@ -171,11 +171,11 @@
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/etBunkLectures"
+                        android:id="@+id/etAttendanceRequired"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:digits="@string/digits_only"
-                        android:hint="# bunkable lectures"
+                        android:hint="% Attendance Required"
                         android:inputType="phone"
                         android:imeOptions="actionDone"
                         android:paddingLeft="15dp"
