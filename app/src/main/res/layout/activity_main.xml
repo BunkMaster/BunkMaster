@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.ayush_harshit.bunkmaster.MainActivity"
     android:id="@+id/relativelayout1"
-    android:background="#CDDC39">
+    android:background="#90CAF9">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
