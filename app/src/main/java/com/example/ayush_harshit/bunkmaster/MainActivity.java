@@ -3,14 +3,18 @@ package com.example.ayush_harshit.bunkmaster;
 /**
  * Created by ayush on 5/2/18.
  */
+import com.example.ayush_harshit.bunkmaster.Adapters.CLickListener;
 import com.example.ayush_harshit.bunkmaster.Adapters.Subject;
-import com.example.ayush_harshit.bunkmaster.Adapters.SubjectListAdapter;
+//import com.example.ayush_harshit.bunkmaster.Adapters.SubjectListAdapter;
 import com.example.ayush_harshit.bunkmaster.Data.SubjectContract;
 import com.example.ayush_harshit.bunkmaster.Data.SubjectCursorAdapter;
 
+import android.app.LoaderManager;
 import android.content.ContentUris;
 import android.content.ContentValues;
+import android.content.CursorLoader;
 import android.content.Intent;
+import android.content.Loader;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
@@ -39,7 +43,8 @@ import butterknife.ButterKnife;
  * The launchpad activity for this sample project. This activity launches other activities that
  * demonstrate implementations of common animations.
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements CLickListener,
+        LoaderManager.LoaderCallbacks<Cursor>{
     /**
      * This class describes an individual sample (the sample title, and the activity class that
      * demonstrates this sample).
@@ -55,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
     int recyclerViewItemPosition;*/
 
     //@BindViews(R.id.recyclerView) RecyclerView mRecyclerView;
-    private SubjectListAdapter mAdapter;
+    private SubjectCursorAdapter mAdapter;
 
     private static int PET_LOADER = 0;
 
@@ -80,8 +85,8 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(recyclerViewLayoutManager);
         mRecyclerView.setHasFixedSize(true);
 
-        mAdapter = new SubjectListAdapter(getBaseContext(), subjects);
-        mRecyclerView.setAdapter(mAdapter);
+        //mAdapter = new SubjectCursorAdapter(getBaseContext(), subjects);
+        //mRecyclerView.setAdapter(mAdapter);
 
         floatingActionButton = (FloatingActionButton)findViewById(R.id.addSubjects);
 
@@ -125,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
                 SubjectContract.SubjectEntry.COLUMN_COURSE_NAME,
                 SubjectContract.SubjectEntry.COLUMN_COURSE_CODE,
                 SubjectContract.SubjectEntry.COLUMN_COURSE_DURATION,
-                SubjectContract.SubjectEntry.COLUMN_LECTURES_PER_WEEK
+                SubjectContract.SubjectEntry.COLUMN_LECTURES_PER_WEEK,
                 SubjectContract.SubjectEntry.COLUMN_ATTENDANCE};
 
         // Perform a query on the pets table
@@ -141,13 +146,13 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mRecyclerView.setAdapter(adapter);
 
-        View emptyView = (View)findViewById(R.id.empty_view);
-        mRecyclerView.setEmptyView(emptyView);
+        //View emptyView = (View)findViewById(R.id.empty_view);
+        //mRecyclerView.setEmptyView(emptyView);
 
         mCursorAdapter = new SubjectCursorAdapter(this,cursor);
         mRecyclerView.setAdapter(mCursorAdapter);
 
-        mRecyclerView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*mRecyclerView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent editIntent = new Intent(getApplicationContext(),AddASubject.class);
@@ -158,9 +163,37 @@ public class MainActivity extends AppCompatActivity {
 
                 startActivity(editIntent);
             }
-        });
+        });*/
 
-        getLoaderManager().initLoader(PET_LOADER,null,null);
+        //getLoaderManager().initLoader(PET_LOADER,null,null);
     }
+
+    @Override
+    public void itemClicked(View view, int position) {
+
+    }
+
+    @Override
+    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+        String projection[] = {SubjectContract.SubjectEntry._ID,
+                SubjectContract.SubjectEntry.COLUMN_COURSE_CODE,
+                SubjectContract.SubjectEntry.COLUMN_COURSE_NAME,
+                SubjectContract.SubjectEntry.COLUMN_ATTENDANCE};
+
+        return new CursorLoader(this,SubjectContract.SubjectEntry.CONTENT_URI,
+                projection,null,null,null);
+
+    }
+
+    @Override
+    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+        mCursorAdapter.swapCursor(data);
+    }
+
+    @Override
+    public void onLoaderReset(Loader<Cursor> loader) {
+        mCursorAdapter.swapCursor(null);
+    }
+
 }
 

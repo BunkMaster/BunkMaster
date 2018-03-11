@@ -20,6 +20,12 @@
         <activity
             android:name=".AddASubject"
             android:label="Add Subject Details"></activity>
+
+        <provider
+            android:authorities="com.example.ayush_harshit.bunkmaster"
+            android:name=".Data.SubjectProvider"
+            android:exported="false"/>
+
     </application>
 
 </manifest>

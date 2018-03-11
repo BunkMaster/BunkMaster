@@ -1,8 +1,12 @@
 package com.example.ayush_harshit.bunkmaster;
 
+import android.app.LoaderManager;
 import android.content.ContentValues;
+import android.content.CursorLoader;
 import android.content.Intent;
+import android.content.Loader;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -26,7 +30,8 @@ import com.google.gson.GsonBuilder;
 
 import org.w3c.dom.Text;
 
-public class AddASubject extends AppCompatActivity {
+public class AddASubject extends AppCompatActivity implements
+                            LoaderManager.LoaderCallbacks<Cursor>{
 
     public static final String courseCode = "CourseCode";
     public static final String courseName = "CourseName";
@@ -34,11 +39,9 @@ public class AddASubject extends AppCompatActivity {
     public static final String lecturesPreWeek = "LecturesPerWeek";
     public static final String attendanceRequired = "AttendanceRequired";
 
-    final EditText courseCodeText = (EditText) findViewById(R.id.etCourseCode);
-    final EditText courseNameText = (EditText)findViewById(R.id.etCourseName);
-    final EditText courseDurationText = (EditText)findViewById(R.id.etCourseDuration);
-    final EditText lecturesPreWeekText = (EditText)findViewById(R.id.etPerWeek);
-    final EditText attendanceRequiredText = (EditText)findViewById(R.id.etAttendanceRequired);
+    EditText courseCodeText,courseNameText,courseDurationText,
+            lecturesPerWeekText,attendanceRequiredText;
+
 
     private Uri currentSubjectUri;
 
@@ -53,6 +56,7 @@ public class AddASubject extends AppCompatActivity {
         }
     };
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,17 +67,28 @@ public class AddASubject extends AppCompatActivity {
         Intent intent = new Intent();
         currentSubjectUri = intent.getData();
 
+        courseCodeText = (EditText) findViewById(R.id.etCourseCode);
+        courseNameText = (EditText)findViewById(R.id.etCourseName);
+        courseDurationText = (EditText)findViewById(R.id.etCourseDuration);
+        lecturesPerWeekText = (EditText)findViewById(R.id.etPerWeek);
+        attendanceRequiredText = (EditText)findViewById(R.id.etAttendanceRequired);
+
         courseCodeText.setOnTouchListener(mTouchListener);
         courseNameText.setOnTouchListener(mTouchListener);
         courseDurationText.setOnTouchListener(mTouchListener);
-        lecturesPreWeekText.setOnTouchListener(mTouchListener);
+        lecturesPerWeekText.setOnTouchListener(mTouchListener);
         attendanceRequiredText.setOnTouchListener(mTouchListener);
 
         Button done = (Button) findViewById(R.id.btDone);
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                saveSubject();
+                finish();
+                Intent i = getBaseContext().getPackageManager()
+                        .getLaunchIntentForPackage( getBaseContext().getPackageName() );
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
             }
         });
     }
@@ -93,11 +108,48 @@ public class AddASubject extends AppCompatActivity {
         super.onBackPressed();
     }
 
+
+    //private void insertSubject() {
+        // Gets the database in write mode
+        ////SQLiteDatabase db = mDbHelper.getWritableDatabase();
+
+        // Create a ContentValues object where column names are the keys,
+        // and Toto's pet attributes are the values.
+
+        /*ContentValues values = new ContentValues();
+        values.put(PetEntry.COLUMN_PET_NAME, "Toto");
+        values.put(PetEntry.COLUMN_PET_BREED, "Terrier");
+        values.put(PetEntry.COLUMN_PET_GENDER, PetEntry.GENDER_MALE);
+        values.put(PetEntry.COLUMN_PET_WEIGHT, 7);
+
+
+
+        ContentValues contentValues = new ContentValues();
+
+        /*contentValues.put(SubjectContract.SubjectEntry.COLUMN_PET_NAME,"Toto");
+        contentValues.put(PetEntry.COLUMN_PET_BREED,"Terrier");
+        contentValues.put(PetEntry.COLUMN_PET_GENDER,PetEntry.GENDER_MALE);
+        contentValues.put(PetEntry.COLUMN_PET_WEIGHT,7);
+        */
+
+        // Insert a new row for Toto in the database, returning the ID of that new row.
+        // The first argument for db.insert() is the pets table name.
+        // The second argument provides the name of a column in which the framework
+        // can insert NULL in the event that the ContentValues is empty (if
+        // this is set to "null", then the framework will not insert a row when
+        // there are no values).
+        // The third argument is the ContentValues object containing the info for Toto.
+
+        //Uri newUri = getContentResolver().insert
+      //          (SubjectContract.SubjectEntry.CONTENT_URI,contentValues);
+    //}
+
+
     private void saveSubject(){
         String name = courseNameText.getText().toString().trim();
         String code = courseCodeText.getText().toString().trim();
         String duration = courseDurationText.getText().toString().trim();
-        String lectures = lecturesPreWeekText.getText().toString().trim();
+        String lectures = lecturesPerWeekText.getText().toString().trim();
         String attendance = attendanceRequiredText.getText().toString().trim();
 
         int numberOfLectures = 0;
@@ -146,5 +198,55 @@ public class AddASubject extends AppCompatActivity {
 
     }
 
+    @Override
+    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+
+        String projection[] = {
+                SubjectContract.SubjectEntry.COLUMN_COURSE_NAME,
+                SubjectContract.SubjectEntry.COLUMN_COURSE_CODE,
+                SubjectContract.SubjectEntry.COLUMN_COURSE_DURATION,
+                SubjectContract.SubjectEntry.COLUMN_LECTURES_PER_WEEK,
+                SubjectContract.SubjectEntry.COLUMN_ATTENDANCE};
+
+        return new CursorLoader(this,currentSubjectUri,projection,
+                null,null,null);
+
+    }
+
+    @Override
+    public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
+
+        if(cursor.moveToFirst()){
+            int nameColumnIndex = cursor.getColumnIndex
+                    (SubjectContract.SubjectEntry.COLUMN_COURSE_NAME);
+            int codeColumnIndex = cursor.getColumnIndex
+                    (SubjectContract.SubjectEntry.COLUMN_COURSE_CODE);
+            int durationColumnIndex = cursor.getColumnIndex
+                    (SubjectContract.SubjectEntry.COLUMN_COURSE_DURATION);
+            int lecturesColumnIndex = cursor.getColumnIndex
+                    (SubjectContract.SubjectEntry.COLUMN_LECTURES_PER_WEEK);
+            int attendanceColumnIndex = cursor.getColumnIndex
+                    (SubjectContract.SubjectEntry.COLUMN_ATTENDANCE);
+
+
+            String name = cursor.getString(nameColumnIndex);
+            String code = cursor.getString(codeColumnIndex);
+            int duration = cursor.getInt(durationColumnIndex);
+            int lectures = cursor.getInt(lecturesColumnIndex);
+            int attendance = cursor.getInt(attendanceColumnIndex);
+
+            courseNameText.setText(name);
+            courseCodeText.setText(code);
+            courseDurationText.setText(Integer.toString(duration));
+            lecturesPerWeekText.setText(Integer.toString(lectures));
+            attendanceRequiredText.setText(Integer.toString(attendance));
+
+        }
+    }
+
+    @Override
+    public void onLoaderReset(Loader<Cursor> loader) {
+
+    }
 
 }
