@@ -30,7 +30,7 @@ public final class SubjectContract {
 
     public static final String CONTENT_AUTHORITY = "com.example.ayush_harshit.bunkmaster";
 
-    public static final String PATH_SUBJECTS = "subjects";
+    public static final String PATH_SUBJECTS = "bunkmaster";
 
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://"+CONTENT_AUTHORITY);
 
